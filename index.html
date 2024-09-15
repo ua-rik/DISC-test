@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Психологічний тест DISC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Підключення Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5" id="app">
+    <div id="nameInput" class="text-center">
+        <h2>Вітаємо!</h2>
+        <p>Будь ласка, введіть своє ім'я, щоб почати тест:</p>
+        <input type="text" id="userName" class="form-control w-50 mx-auto" placeholder="Ваше ім'я">
+        <button class="btn btn-primary mt-3" onclick="startTest()">Почати тест</button>
+    </div>
+
+    <div id="questionSection" class="d-none">
+        <div id="questionNumber" class="text-right">Питання <span id="currentQuestion">1</span> з 10</div>
+        <h4 id="mostQuestion" class="mt-4">Що з переліченого найбільш притаманне тобі?</h4>
+        <div id="mostOptions" class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+            <!-- Кнопки з опціями будуть згенеровані динамічно -->
+        </div>
+
+        <h4 id="leastQuestion" class="mt-4">Що з переліченого найменш притаманне тобі?</h4>
+        <div id="leastOptions" class="btn-group btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+            <!-- Кнопки з опціями будуть згенеровані динамічно -->
+        </div>
+
+        <button class="btn btn-success mt-4" onclick="nextQuestion()">Далі</button>
+    </div>
+
+    <div id="thankYou" class="text-center d-none">
+        <h2>Дякую, відповіді збережені!</h2>
+    </div>
+</div>
+
+<!-- Підключення Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- Підключення власного JS-файлу -->
+<script src="script.js"></script>
+
+</body>
+</html>
