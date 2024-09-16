@@ -60,17 +60,43 @@ function loadQuestion() {
 
     // Генерація кнопок для "найбільш притаманне"
     qualities.forEach((quality, index) => {
+        let inputId = `most-${currentQuestionIndex}-${index}`;
+
+        let input = document.createElement('input');
+        input.type = 'radio';
+        input.className = 'btn-check';
+        input.name = 'most';
+        input.id = inputId;
+        input.value = index;
+        input.autocomplete = 'off';
+
         let label = document.createElement('label');
         label.className = 'btn btn-outline-primary m-1 flex-fill';
-        label.innerHTML = `<input type="radio" name="most" value="${index}"> ${quality}`;
+        label.setAttribute('for', inputId);
+        label.innerText = quality;
+
+        document.getElementById('mostOptions').appendChild(input);
         document.getElementById('mostOptions').appendChild(label);
     });
 
     // Генерація кнопок для "найменш притаманне"
     qualities.forEach((quality, index) => {
+        let inputId = `least-${currentQuestionIndex}-${index}`;
+
+        let input = document.createElement('input');
+        input.type = 'radio';
+        input.className = 'btn-check';
+        input.name = 'least';
+        input.id = inputId;
+        input.value = index;
+        input.autocomplete = 'off';
+
         let label = document.createElement('label');
         label.className = 'btn btn-outline-secondary m-1 flex-fill';
-        label.innerHTML = `<input type="radio" name="least" value="${index}"> ${quality}`;
+        label.setAttribute('for', inputId);
+        label.innerText = quality;
+
+        document.getElementById('leastOptions').appendChild(input);
         document.getElementById('leastOptions').appendChild(label);
     });
 }
@@ -94,10 +120,6 @@ function nextQuestion() {
         most: most.value,
         least: least.value
     });
-
-    // Скидання вибору для наступного питання
-    document.querySelectorAll('input[name="most"]').forEach(el => el.checked = false);
-    document.querySelectorAll('input[name="least"]').forEach(el => el.checked = false);
 
     currentQuestionIndex++;
 
